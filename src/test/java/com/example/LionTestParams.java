@@ -18,7 +18,7 @@ public class LionTestParams {
         this.hasMane = hasMane;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Пол: {0}, есть ли грива: {1}") // исправление: добавил аргумент name
     public static Object[][] getTestData() {
         return new Object[][]{
                 {"Самка", false},
@@ -30,6 +30,5 @@ public class LionTestParams {
     public void doesHaveManeTest() throws Exception {
         Lion lion = new Lion(feline, sex);
         assertEquals(hasMane, lion.doesHaveMane());
-        System.out.println(sex + hasMane + lion.doesHaveMane());
     }
 }
